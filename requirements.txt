@@ -1,0 +1,11 @@
+joblib
+matplotlib
+mlflow
+dvc[s3]
+nltk
+numpy
+pandas
+seaborn
+scikit-learn
+
+-e .
