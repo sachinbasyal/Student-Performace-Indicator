@@ -9,11 +9,13 @@ os.makedirs(logs_dir, exist_ok=True)
 
 LOG_FILE_PATH = os.path.join(logs_dir, LOG_FILE)
 
-logging.basicConfig(
-    filename=LOG_FILE_PATH,
-    format='[%(asctime)s] %(lineno)d %(filename)s %(levelname)s - %(message)s',
-    level=logging.INFO,
-)
-
-if __name__ == "__main__":
-    logging.info("Logger has been configured.") 
+def get_logger(name: str = __name__) -> logging.Logger:
+    logging.basicConfig(
+        filename=LOG_FILE_PATH,
+        filemode="a",
+        encoding="utf-8",
+        format='[%(asctime)s] %(lineno)d %(filename)s %(levelname)s - %(message)s',
+        level=logging.INFO,
+        force=True,  # ensures config applies even if logging was already configured
+    )
+    return logging.getLogger(name)
