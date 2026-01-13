@@ -19,3 +19,9 @@ def get_logger(name: str = __name__) -> logging.Logger:
         force=True,  # ensures config applies even if logging was already configured
     )
     return logging.getLogger(name)
+
+# Example usage:
+# from src.logger import get_logger
+# logger = get_logger(__name__)
+# logger.info("Pipeline started")
+# logger.error("An error occurred")
